@@ -122,7 +122,12 @@ fi
 # Unable to set up USB interface? Reboot.
 if [ x$USB_IFACE = xnotfound ]; then
 	usb_info "Halium initrd Debug: ERROR: could not setup USB as usb0 or rndis0"
-	dmesg
+	#dmesg
+	mkdir -p /metadata
+	mount /dev/block/sda9 /metadata
+	dmesg > /metadata/dmesg.log
+	lsmod > /metadata/lsmod.txt
+	umount /metadata
 	sleep 60 # plenty long enough to check usb on host
 	reboot -f
 fi
