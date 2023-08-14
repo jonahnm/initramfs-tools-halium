@@ -123,6 +123,7 @@ fi
 if [ x$USB_IFACE = xnotfound ]; then
 	usb_info "Halium initrd Debug: ERROR: could not setup USB as usb0 or rndis0"
 	#dmesg
+	#debugging
 	mkdir -p /metadata
 	mount /dev/block/sda9 /metadata
 	dmesg > /metadata/dmesg.log
