@@ -18,4 +18,4 @@ jobs:
           sudo apt-get install qemu-user-static debootstrap -y
 
       - name: Build initramfs
-        run: sudo ARCH=${{ matrix.arch }} ./build-initrd.sh
+        run: sudo ARCH=${{ matrix.arch }} ./build-initrd.sh -m http://archive.debian.org/debian/
